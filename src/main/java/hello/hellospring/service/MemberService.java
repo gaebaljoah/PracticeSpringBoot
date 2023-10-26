@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 //ctrl + shift + t 해서 테스트파일 생성할 수 있다.
-@Service
+//@Service
 public class MemberService {
 
     private final MemberRepository memberRepository;
