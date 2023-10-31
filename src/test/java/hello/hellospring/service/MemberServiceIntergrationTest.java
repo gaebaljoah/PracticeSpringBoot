@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 @SpringBootTest //test할떄 스프링부트 테스트 어노테이션만 추가하면됨
-@Transactional
+//@Transactional //트랜잭셔널 어노테이션 -> 테스트 끝나고 다 롤백시켜버림.
 class MemberServiceIntergrationTest {
 
     //테스트 케이스는 필드 의존성 주입으로 해도 괜찮다.
@@ -27,13 +27,14 @@ class MemberServiceIntergrationTest {
     void join() {
         //given
         Member member = new Member();
-        member.setName("hello");
+        member.setName("spring");
 
         //when
         Long saveId = memberService.join(member);
-        System.out.printf("saveId...?"+saveId);
+        System.out.println("saveId...?"+saveId);
         //then
         Member findMember = memberService.findOne(saveId).get();
+        System.out.println("findMember...?"+findMember);
         assertThat(member.getName()).isEqualTo(findMember.getName());
 
     }
@@ -66,11 +67,4 @@ class MemberServiceIntergrationTest {
 
     }
 
-    @Test
-    void findMembers() {
-    }
-
-    @Test
-    void findOne() {
-    }
 }
