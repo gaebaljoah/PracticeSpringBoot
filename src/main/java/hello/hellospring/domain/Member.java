@@ -8,7 +8,7 @@ public class Member {
     //pk를 mapping @GeneratedValue(strategy = GenerationType.IDENTITY) = sequence 개념
     private Long id;
 
-    @Column(name="username") //컬럼을 매핑
+    @Column(name="name") //컬럼을 매핑
     private String name;
 
     public Long getId() {
